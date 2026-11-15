@@ -14,7 +14,7 @@ export const ModalWindow: FC<IModalWindowProps> = ({
   title
 }) => {
   return (
-    <div className={style["window"]}>
+    <div className={style["window"]} onClick={(event) => event.stopPropagation()}>
       {/**Базовое содержимое, что должно быть всегда */}
       <div className={style["window__head"]}>
         <span>{title}</span>

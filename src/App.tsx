@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 import { useModalContext } from './components/contexts/ModalContext'
+import { JaksHomeModal } from './components/modals/JacksHomeModal/JaksHomeModal'
 
 function App() {
   const context = useModalContext();
@@ -12,6 +13,9 @@ function App() {
     <>
     <button onClick={() => {context?.openModal(<>My First Modal</>)}}>
       <>Open Modal</>
+    </button>
+    <button onClick={() => {context?.openModal(<JaksHomeModal/>)}}>
+      <>Модалка, которую создал Джек</>
     </button>
     </>
   )

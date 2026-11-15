@@ -35,16 +35,20 @@ const ModalContextProvider: FC<IModalContextProviderProps> = ({children}) => {
   
   const openModal = (modal: ReactNode) => {
     setModalsList(prev => [...prev, modal])
+    
+    console.log("Открыт", modal);
   }
 
   const clearModalsList = () => {
     setModalsList([]);
+    console.log("Закрыты все", modalsList);
   }
 
   const closeCurrentModal = () => {
-    const list = modalsList;
-    list.pop();
+    const list = modalsList.slice(0, -1);
+    console.log("Закрыт текущий", list);
     setModalsList(list);
+    
   }
 
   return (
