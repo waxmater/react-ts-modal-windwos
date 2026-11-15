@@ -1,0 +1,17 @@
+.window {
+  border-radius: 7px;
+  background-color: wheat;
+  color: black;
+  position: absolute;
+  margin: auto;
+  min-height: 200px;
+  min-width: 300px;
+
+  &__head {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+}

@@ -1,5 +1,7 @@
 import type { FC, ReactNode } from "react";
 
+import style from "./ModalWindow.module.scss"
+
 interface IModalWindowProps {
   children: ReactNode,
   onCrossClick: () => void,
@@ -12,9 +14,9 @@ export const ModalWindow: FC<IModalWindowProps> = ({
   title
 }) => {
   return (
-    <div>
+    <div className={style["window"]}>
       {/**Базовое содержимое, что должно быть всегда */}
-      <div>
+      <div className={style["window__head"]}>
         <span>{title}</span>
 
         <span onClick={onCrossClick}> {/**Потом можно заменить на svg-шку */}

@@ -1,5 +1,7 @@
 import type { FC, ReactNode } from "react";
 
+import style from "./ModalOverlay.module.scss"
+
 interface ModalOverlayProps {
   children: ReactNode;
   onClick: () => void;
@@ -10,7 +12,7 @@ export const ModalOverlay: FC<ModalOverlayProps> = ({
   onClick
 }) => {
   return(
-    <div onClick={onClick}>
+    <div className={style["overlay"]} onClick={onClick}>
       {children}
     </div>
   )
