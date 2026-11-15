@@ -1,6 +1,7 @@
 import { createContext, useContext, type ReactNode, type FC, useState } from "react";
 
 import ReactDOM from "react-dom";
+import { ModalOverlay } from "./components/ModalOverlay/ModalOvarlay";
 
 
 interface IModalContexValues {
@@ -53,7 +54,9 @@ const ModalContextProvider: FC<IModalContextProviderProps> = ({children}) => {
         closeCurrentModal
       }}
     >
-      {children}
+      <ModalOverlay onClick={closeCurrentModal}>
+        {children}
+      </ModalOverlay>
 
       {portalElement && modalsList.length > 0 && ReactDOM.createPortal((
         <>
