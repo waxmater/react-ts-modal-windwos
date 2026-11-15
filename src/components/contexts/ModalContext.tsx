@@ -2,6 +2,7 @@ import { createContext, useContext, type ReactNode, type FC, useState } from "re
 
 import ReactDOM from "react-dom";
 import { ModalOverlay } from "./components/ModalOverlay/ModalOvarlay";
+import { ModalWindow } from "./components/ModalWindow/ModalWindow";
 
 
 interface IModalContexValues {
@@ -54,14 +55,14 @@ const ModalContextProvider: FC<IModalContextProviderProps> = ({children}) => {
         closeCurrentModal
       }}
     >
-      <ModalOverlay onClick={closeCurrentModal}>
-        {children}
-      </ModalOverlay>
+      {children}
 
       {portalElement && modalsList.length > 0 && ReactDOM.createPortal((
-        <>
-          {modalsList[modalsList.length-1]}
-        </>),
+        <ModalOverlay onClick={clearModalsList}>
+          <ModalWindow onCrossClick={closeCurrentModal}>
+            {modalsList[modalsList.length-1]}
+          </ModalWindow>
+        </ModalOverlay>),
         portalElement
       )}
     </modalContext.Provider>
